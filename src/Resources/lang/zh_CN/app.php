@@ -13,6 +13,10 @@ return [
             'description'   => '描述',
             'image'         => '标志',
             'status'        => '状态',
+            'api_key' => 'API 密钥',
+            'api_key_info' => '请输入您从 Iyzico 控制面板获取的商户 API 密钥',
+            'secret_key' => '密钥',
+            'secret_key_info' => '请输入您从 Iyzico 控制面板获取的商户密钥',
         ],
     ],
 

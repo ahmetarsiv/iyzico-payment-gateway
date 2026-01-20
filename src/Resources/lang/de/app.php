@@ -13,6 +13,10 @@ return [
             'description'   => 'Beschreibung',
             'image'         => 'Logo',
             'status'        => 'Status',
+            'api_key' => 'API-Schlüssel',
+            'api_key_info' => 'Geben Sie den Händler-API-Schlüssel ein, den Sie im İyzico-Panel erhalten haben',
+            'secret_key' => 'Geheimer Schlüssel',
+            'secret_key_info' => 'Geben Sie den geheimen Händler-Schlüssel ein, den Sie im İyzico-Panel erhalten haben',
         ],
     ],
 

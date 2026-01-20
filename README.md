@@ -10,7 +10,7 @@ Install this package now to receive secure payments in your online store. Iyzico
 
 ## 2. Requirements:
 
-* **PHP**: 8.1 or higher.
+* **PHP**: 8.2 or higher.
 * **Bagisto**: v2.*
 * **Composer**: 1.6.5 or higher.
 
@@ -21,23 +21,15 @@ Install this package now to receive secure payments in your online store. Iyzico
 composer require codenteq/iyzico-payment-gateway
 ```
 
-- Run these commands below to complete the setup
+- Publish the assets using the command below
 ```
-composer dump-autoload
+php artisan vendor:publish --tag=iyzico-assets
 ```
 
 > WARNING <br>
-> It will check existence of the .env file, if it exists then please update the file manually with the below details.
-```
-IYZICO_API_KEY=
-IYZICO_SECRET_KEY=
-IYZICO_BASE_URL=
-```
+> Go to `/admin/configuration/sales/payment_methods`, find Iyzico, and enter your API Key and Secret Key.
 
-- Run these commands below to complete the setup
-```
-php artisan optimize
-```
+> That's it, now just execute the project on your specified domain.
 
 ## Installation without composer:
 
@@ -60,16 +52,7 @@ composer dump-autoload
 ```
 
 > WARNING <br>
-> It will check existence of the .env file, if it exists then please update the file manually with the below details.
-```
-IYZICO_API_KEY=
-IYZICO_SECRET_KEY=
-IYZICO_BASE_URL=
-```
-
-```
-php artisan optimize
-```
+> Go to `/admin/configuration/sales/payment_methods`, find Iyzico, and enter your API Key and Secret Key.
 
 > That's it, now just execute the project on your specified domain.
 

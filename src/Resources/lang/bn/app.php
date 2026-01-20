@@ -13,6 +13,10 @@ return [
             'description'   => 'বিবরণ',
             'image'         => 'লোগো',
             'status'        => 'অবস্থা',
+            'api_key' => 'API কী',
+            'api_key_info' => 'İyzico প্যানেল থেকে প্রাপ্ত আপনার মার্চেন্ট API কী লিখুন',
+            'secret_key' => 'গোপন কী',
+            'secret_key_info' => 'İyzico প্যানেল থেকে প্রাপ্ত আপনার মার্চেন্ট গোপন কী লিখুন',
         ],
     ],
 

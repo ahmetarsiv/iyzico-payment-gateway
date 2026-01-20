@@ -13,6 +13,10 @@ return [
             'description'       => 'Description',
             'image'             => 'Logo',
             'status'            => 'Status',
+            'api_key' => 'API Key',
+            'api_key_info' => 'Enter the Merchant API Key you obtained from the Iyzico dashboard',
+            'secret_key' => 'Secret Key',
+            'secret_key_info' => 'Enter the Merchant Secret Key you obtained from the Iyzico dashboard',
         ],
     ],
 

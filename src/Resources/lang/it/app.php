@@ -13,6 +13,10 @@ return [
             'description'   => 'Descrizione',
             'image'         => 'Logo',
             'status'        => 'Stato',
+            'api_key' => 'Chiave API',
+            'api_key_info' => 'Inserisci la chiave API del commerciante ottenuta dal pannello Iyzico',
+            'secret_key' => 'Chiave segreta',
+            'secret_key_info' => 'Inserisci la chiave segreta del commerciante ottenuta dal pannello Iyzico',
         ],
     ],
 
