@@ -17,6 +17,8 @@ class IyzicoServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../Resources/views', 'iyzico');
 
+        $this->publishes([__DIR__ . '/../Resources/assets' => public_path('vendor/iyzico')], 'iyzico-assets');
+
         $this->app->register(EventServiceProvider::class);
     }
 
