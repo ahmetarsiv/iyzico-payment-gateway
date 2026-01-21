@@ -11,6 +11,17 @@ use Webkul\Iyzico\Helpers\IyzicoApi;
 class Refund extends Base
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(
+        protected IyzicoApi $iyzicoApi
+    ) {
+        //
+    }
+
+    /**
      * After order is created
      */
     public function afterCreated(\Webkul\Sales\Contracts\Refund $refund): void
@@ -44,7 +55,7 @@ class Refund extends Base
                 $request->setLocale(app()->getLocale());
                 $request->setCurrency($refund->order_currency_code);
 
-                RefundModel::create($request, IyzicoApi::options());
+                RefundModel::create($request, $this->iyzicoApi->options());
             }
         }
     }

@@ -57,8 +57,11 @@ class PaymentController extends Controller
             return redirect()->route('shop.checkout.cart.index')->with('error', 'User not authenticated.');
         }
 
+        $conversationId = uniqid('IYZIPAY_');
+
         $requestIyzico = new CreateCheckoutFormInitializeRequest();
         $requestIyzico->setLocale(app()->getLocale());
+        $requestIyzico->setConversationId($conversationId);
         $requestIyzico->setPrice($cart['sub_total']);
         $requestIyzico->setPaidPrice($cart['grand_total']);
         $requestIyzico->setCurrency($cart['cart_currency_code']);
