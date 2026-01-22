@@ -2,12 +2,14 @@
 
 return [
     'iyzico'  => [
+        'class'       => \Webkul\Iyzico\Payment\Iyzico::class,
         'code'        => 'iyzico',
         'title'       => 'Iyzico',
         'description' => 'Iyzico',
-        //'image'       => '/images/iyzico.svg',
-        'class'       => 'Webkul\Iyzico\Payment\Iyzico',
         'active'      => true,
-        'sort'        => 0,
+        'sandbox'     => true,
+        'api_key'     => 'API_KEY',
+        'secret_key'  => 'SECRET_KEY',
+        'sort'        => 1,
     ],
 ];

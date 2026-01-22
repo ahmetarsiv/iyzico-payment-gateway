@@ -14,7 +14,6 @@ use Iyzipay\Model\PaymentGroup;
 use Iyzipay\Request\CreateCheckoutFormInitializeRequest;
 use Iyzipay\Request\RetrieveCheckoutFormRequest;
 use Webkul\Checkout\Facades\Cart;
-use Webkul\Customer\Models\Customer;
 use Webkul\Iyzico\Helpers\Ipn;
 use Webkul\Iyzico\Helpers\IyzicoApi;
 use Webkul\Sales\Models\OrderPayment;
@@ -32,7 +31,8 @@ class PaymentController extends Controller
     public function __construct(
         protected OrderRepository $orderRepository,
         protected InvoiceRepository $invoiceRepository,
-        protected Ipn $ipnHelper
+        protected Ipn $ipnHelper,
+        protected IyzicoApi $iyzicoApi
     ) {
         //
     }
@@ -57,8 +57,11 @@ class PaymentController extends Controller
             return redirect()->route('shop.checkout.cart.index')->with('error', 'User not authenticated.');
         }
 
+        $conversationId = uniqid('IYZIPAY_');
+
         $requestIyzico = new CreateCheckoutFormInitializeRequest();
         $requestIyzico->setLocale(app()->getLocale());
+        $requestIyzico->setConversationId($conversationId);
         $requestIyzico->setPrice($cart['sub_total']);
         $requestIyzico->setPaidPrice($cart['grand_total']);
         $requestIyzico->setCurrency($cart['cart_currency_code']);
@@ -114,7 +117,7 @@ class PaymentController extends Controller
         }
         $requestIyzico->setBasketItems($basketItems);
 
-        $checkoutFormInitialize = CheckoutFormInitialize::create($requestIyzico, IyzicoApi::options());
+        $checkoutFormInitialize = CheckoutFormInitialize::create($requestIyzico, $this->iyzicoApi->options());
         $paymentForm = $checkoutFormInitialize->getCheckoutFormContent();
         $paymentPageUrl = $checkoutFormInitialize->getPaymentPageUrl().'&iframe=true';
         $checkoutFormInitialize->setPaymentPageUrl($paymentPageUrl);
@@ -130,7 +133,7 @@ class PaymentController extends Controller
         $requestIyzico = new RetrieveCheckoutFormRequest();
         $requestIyzico->setLocale(app()->getLocale());
         $requestIyzico->setToken($request->token);
-        $checkoutForm = CheckoutForm::retrieve($requestIyzico, IyzicoApi::options());
+        $checkoutForm = CheckoutForm::retrieve($requestIyzico, $this->iyzicoApi->options());
 
         if ($checkoutForm->getPaymentStatus() == 'SUCCESS') {
             $paymentTransactionId = $checkoutForm->getPaymentItems()[0]->getPaymentTransactionId();

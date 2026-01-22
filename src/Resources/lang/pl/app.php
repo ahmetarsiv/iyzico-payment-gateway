@@ -13,6 +13,10 @@ return [
             'description'   => 'Opis',
             'image'         => 'Logo',
             'status'        => 'Status',
+            'api_key' => 'Klucz API',
+            'api_key_info' => 'Wprowadź klucz API sprzedawcy otrzymany z panelu Iyzico',
+            'secret_key' => 'Klucz tajny',
+            'secret_key_info' => 'Wprowadź tajny klucz sprzedawcy otrzymany z panelu Iyzico',
         ],
     ],
 

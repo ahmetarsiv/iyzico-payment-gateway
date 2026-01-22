@@ -13,6 +13,10 @@ return [
             'description'       => 'Açıklama',
             'image'             => 'Logo',
             'status'            => 'Durum',
+            'api_key'           => 'API anahtarı',
+            'api_key_info'      => 'İyzico panosundan aldığınız Üye İşyeri API Anahtarını girin',
+            'secret_key'        => 'Gizli anahtar',
+            'secret_key_info'   => 'İyzico panosundan aldığınız Üye İşyeri Gizli Anahtarını girin',
         ],
     ],
 

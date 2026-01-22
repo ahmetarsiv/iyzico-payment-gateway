@@ -5,16 +5,18 @@ use Illuminate\Support\Facades\Route;
 use Webkul\Iyzico\Http\Controllers\PaymentController;
 
 Route::group(['middleware' => ['web']], function () {
+    Route::controller(PaymentController::class)->prefix('iyzico')->group(function () {
 
-    /**
-     * Iyzico payment routes
-     */
-    Route::get('/iyzico-redirect', [PaymentController::class, 'redirect'])->name('iyzico.redirect');
+        /**
+         * Iyzico payment routes
+         */
+        Route::get('/redirect', 'redirect')->name('iyzico.redirect');
 
-    Route::get('/iyzico-success', [PaymentController::class, 'success'])->name('iyzico.success');
+        Route::get('/success', 'success')->name('iyzico.success');
 
-    Route::get('/iyzico-cancel', [PaymentController::class, 'failure'])->name('iyzico.cancel');
+        Route::get('/cancel', 'failure')->name('iyzico.cancel');
 
-    Route::post('/iyzico-callback', [PaymentController::class, 'callback'])->name('iyzico.callback')
-        ->withoutMiddleware([VerifyCsrfToken::class]);
+        Route::post('/callback', 'callback')->name('iyzico.callback')
+            ->withoutMiddleware(VerifyCsrfToken::class);
+    });
 });

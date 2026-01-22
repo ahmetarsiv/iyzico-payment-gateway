@@ -13,6 +13,10 @@ return [
             'description'   => 'විස්තරය',
             'image'         => 'ලොගෝ',
             'status'        => 'ස්ථාපනය',
+            'api_key' => 'API යතුර',
+            'api_key_info' => 'Iyzico පැනලයෙන් ලබාගත් ඔබගේ වෙළඳ API යතුර ඇතුළත් කරන්න',
+            'secret_key' => 'රහස් යතුර',
+            'secret_key_info' => 'Iyzico පැනලයෙන් ලබාගත් ඔබගේ වෙළඳ රහස් යතුර ඇතුළත් කරන්න',
         ],
     ],
 
