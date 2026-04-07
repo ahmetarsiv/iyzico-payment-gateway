@@ -57,4 +57,4 @@ composer dump-autoload
 > That's it, now just execute the project on your specified domain.
 
 ## How to contribute
-Iyzico Payment Gateway is always open for direct contributions. Contributions can be in the form of design suggestions, documentation improvements, new component suggestions, code improvements, adding new features or fixing problems. For more information please check our [Contribution Guideline document.](https://codenteq.com/contributor-covenant-code-of-conduct/)
+Iyzico Payment Gateway is always open for direct contributions. Contributions can be in the form of design suggestions, documentation improvements, new component suggestions, code improvements, adding new features or fixing problems. For more information please check our [Contribution Guideline document.](https://opensource.codenteq.com/contributor-covenant-code-of-conduct/)

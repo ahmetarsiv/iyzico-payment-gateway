@@ -68,7 +68,8 @@ class PaymentController extends Controller
         $requestIyzico->setBasketId($cart['id']);
         $requestIyzico->setPaymentGroup(PaymentGroup::PRODUCT);
         $requestIyzico->setCallbackUrl(route('iyzico.callback'));
-        $requestIyzico->setEnabledInstallments([1, 2, 3, 6, 9]);
+        $requestIyzico->setEnabledInstallments([1,2,3,4,6,9,12]);
+        $requestIyzico->setPaymentSource('Codenteq');
 
         $buyer = new Buyer();
         $buyer->setId($cart['id']);
