@@ -17,6 +17,8 @@ class IyzicoServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../Resources/views', 'iyzico');
 
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
+
         $this->publishes([__DIR__ . '/../Resources/assets' => public_path('vendor/iyzico')], 'iyzico-assets');
 
         $this->app->register(EventServiceProvider::class);
@@ -28,6 +30,11 @@ class IyzicoServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->registerConfig();
+
+        $this->app->bind(
+            \Webkul\Iyzico\Contracts\IyzicoTransaction::class,
+            \Webkul\Iyzico\Models\IyzicoTransaction::class
+        );
     }
 
     /**
