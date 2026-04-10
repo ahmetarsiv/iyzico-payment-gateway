@@ -18,6 +18,7 @@ use Webkul\Checkout\Facades\Cart;
 use Webkul\Checkout\Models\Cart as CartModel;
 use Webkul\Iyzico\Helpers\Ipn;
 use Webkul\Iyzico\Helpers\IyzicoApi;
+use Webkul\Iyzico\Models\PaymentSource;
 use Webkul\Iyzico\Repositories\IyzicoTransactionRepository;
 use Webkul\Sales\Repositories\InvoiceRepository;
 use Webkul\Sales\Repositories\OrderRepository;
@@ -82,7 +83,7 @@ class PaymentController extends Controller
         $requestIyzico->setPaymentGroup(PaymentGroup::PRODUCT);
         $requestIyzico->setCallbackUrl(route('iyzico.callback'));
         $requestIyzico->setEnabledInstallments([1,2,3,4,6,9,12]);
-        $requestIyzico->setPaymentSource('CODENTEQ');
+        $requestIyzico->setPaymentSource(PaymentSource::CODENTEQ);
 
         $buyer = new Buyer();
         $buyer->setId($cart['id']);
