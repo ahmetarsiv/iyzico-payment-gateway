@@ -18,7 +18,7 @@ use Webkul\Checkout\Facades\Cart;
 use Webkul\Checkout\Models\Cart as CartModel;
 use Webkul\Iyzico\Helpers\Ipn;
 use Webkul\Iyzico\Helpers\IyzicoApi;
-use Webkul\Iyzico\Models\PaymentSource;
+use Webkul\Iyzico\Constants\PaymentSource;
 use Webkul\Iyzico\Repositories\IyzicoTransactionRepository;
 use Webkul\Sales\Repositories\InvoiceRepository;
 use Webkul\Sales\Repositories\OrderRepository;
@@ -131,6 +131,7 @@ class PaymentController extends Controller
             $products++;
         }
         $requestIyzico->setBasketItems($basketItems);
+        dd($requestIyzico);
 
         $checkoutFormInitialize = CheckoutFormInitialize::create($requestIyzico, $this->iyzicoApi->options());
         $paymentForm = $checkoutFormInitialize->getCheckoutFormContent();
