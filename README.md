@@ -26,6 +26,11 @@ composer require codenteq/iyzico-payment-gateway
 php artisan vendor:publish --tag=iyzico-assets
 ```
 
+- Run database migrations after installation
+```
+php artisan migrate
+```
+
 > WARNING <br>
 > Go to `/admin/configuration/sales/payment_methods`, find Iyzico, and enter your API Key and Secret Key.
 
@@ -49,6 +54,11 @@ Webkul\Iyzico\Providers\IyzicoServiceProvider::class,
 
 ```
 composer dump-autoload
+```
+
+- Run database migrations after installation
+```
+php artisan migrate
 ```
 
 > WARNING <br>
