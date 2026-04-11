@@ -131,7 +131,6 @@ class PaymentController extends Controller
             $products++;
         }
         $requestIyzico->setBasketItems($basketItems);
-        dd($requestIyzico);
 
         $checkoutFormInitialize = CheckoutFormInitialize::create($requestIyzico, $this->iyzicoApi->options());
         $paymentForm = $checkoutFormInitialize->getCheckoutFormContent();
