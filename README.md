@@ -26,6 +26,11 @@ composer require codenteq/iyzico-payment-gateway
 php artisan vendor:publish --tag=iyzico-assets
 ```
 
+- Run database migrations after installation
+```
+php artisan migrate
+```
+
 > WARNING <br>
 > Go to `/admin/configuration/sales/payment_methods`, find Iyzico, and enter your API Key and Secret Key.
 
@@ -51,10 +56,15 @@ Webkul\Iyzico\Providers\IyzicoServiceProvider::class,
 composer dump-autoload
 ```
 
+- Run database migrations after installation
+```
+php artisan migrate
+```
+
 > WARNING <br>
 > Go to `/admin/configuration/sales/payment_methods`, find Iyzico, and enter your API Key and Secret Key.
 
 > That's it, now just execute the project on your specified domain.
 
 ## How to contribute
-Iyzico Payment Gateway is always open for direct contributions. Contributions can be in the form of design suggestions, documentation improvements, new component suggestions, code improvements, adding new features or fixing problems. For more information please check our [Contribution Guideline document.](https://codenteq.com/contributor-covenant-code-of-conduct/)
+Iyzico Payment Gateway is always open for direct contributions. Contributions can be in the form of design suggestions, documentation improvements, new component suggestions, code improvements, adding new features or fixing problems. For more information please check our [Contribution Guideline document.](https://opensource.codenteq.com/contributor-covenant-code-of-conduct/)

@@ -91,7 +91,7 @@ return [
                 ],
                 'channel_based' => true,
                 'locale_based'  => false,
-            ],
+            ]
         ],
     ],
 ];

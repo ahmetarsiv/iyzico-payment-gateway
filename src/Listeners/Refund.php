@@ -48,10 +48,16 @@ class Refund extends Base
 
         if ($order->payment->method === 'iyzico') {
             if ($refund->total_qty > 0) {
+                $transaction = \Webkul\Iyzico\Models\IyzicoTransaction::where('order_id', $order->id)->first();
+
+                if (! $transaction || ! $transaction->payment_transaction_id) {
+                    return;
+                }
+
                 $request = new CreateRefundRequest();
                 $request->setIp(request()->ip());
                 $request->setPrice($refund->grand_total);
-                $request->setPaymentTransactionId($order->payment['additional']);
+                $request->setPaymentTransactionId($transaction->payment_transaction_id);
                 $request->setLocale(app()->getLocale());
                 $request->setCurrency($refund->order_currency_code);
 
